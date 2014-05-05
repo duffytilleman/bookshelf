@@ -39,6 +39,7 @@ var EagerRelation = exports.EagerRelation = EagerBase.extend({
       return m.get(relatedData.morphName + '_type');
     });
     for (var group in groups) {
+      if (group === 'null') { break; }
       var Target = Helpers.morphCandidate(relatedData.candidates, group);
       var target = new Target();
       pending.push(target
